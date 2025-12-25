@@ -3,15 +3,12 @@
 import { useState } from "react";
 import { MessageProps } from "@/app/interfaces/interfaces";
 import Message from "./Message";
+import { fixedQuestions } from "@/utils/utils";
 
 export default function Chat() {
   //test messages
   const [messages, setMessages] = useState<MessageProps[]>([
-    // {
-    //   id: "1",
-    //   text: "Привет! Я - ваш архитектурный ии-поисковик документации. Напишите, в какой сфере будет ваш проект?",
-    //   role: "assistant",
-    // },
+   
   ]);
 
   const [input, setInput] = useState<string>("");
@@ -83,6 +80,12 @@ export default function Chat() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Message
+        id={Math.ceil(Math.random() * 1000).toString()}
+        key={Math.ceil(Math.random() * 1000).toString()}
+        text={fixedQuestions}
+        role="assistant"
+      />
       {messages.map((message) => (
         <Message key={message.id} {...message} />
       ))}
