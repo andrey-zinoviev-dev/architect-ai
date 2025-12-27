@@ -8,7 +8,7 @@ import { fixedQuestions } from "@/utils/utils";
 export default function Chat() {
   //test messages
   const [messages, setMessages] = useState<MessageProps[]>([
-   
+
   ]);
 
   const [input, setInput] = useState<string>("");
@@ -79,7 +79,7 @@ export default function Chat() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
       <Message
         id={Math.ceil(Math.random() * 1000).toString()}
         key={Math.ceil(Math.random() * 1000).toString()}
@@ -89,8 +89,11 @@ export default function Chat() {
       {messages.map((message) => (
         <Message key={message.id} {...message} />
       ))}
-      <textarea onChange={handleInputChange} />
-      <button type="submit">Отправить</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <textarea onChange={handleInputChange} />
+        <button type="submit">Отправить</button>
+      </form>
+    </>
+
   );
 }
