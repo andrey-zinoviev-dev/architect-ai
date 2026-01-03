@@ -1,4 +1,5 @@
-import { getProjectById, getProjects } from "@/app/DAL/projectDAL";
+import { getProjectById, getProjects, createProjectDAL } from "@/app/DAL/projectDAL";
+import { BuildingProjectCreateInterface } from "../interfaces/interfaces";
 
 export const showUserProjects = async () => {
     try {
@@ -17,5 +18,15 @@ export const showProjectById = async (id: number) => {
     } catch (error) {
         console.error(error);
         throw new Error("Failed to get project");
+    }
+};
+
+export const createProject = async (project: BuildingProjectCreateInterface) => {
+    try {
+        const newProject = await createProjectDAL(project);
+        return newProject;
+    } catch (error) {
+        console.error(error);
+        throw new Error("Failed to create project");
     }
 };

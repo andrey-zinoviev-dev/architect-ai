@@ -13,7 +13,7 @@ export default async function Projects() {
                     <Link href={`/projects/${project.id}`}>Открыть проект</Link>
                 </div>
             ))}
-
+            <Link href="/projects/new">Добавить проект</Link>
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { BuildingProjectCreateInterface } from "../interfaces/interfaces";
 
 export const getProjects = async () => {
     try {
@@ -21,5 +22,17 @@ export const getProjectById = async (id: number) => {
     } catch (error) {
         console.error(error);
         throw new Error("Failed to get project");
+    }
+};
+
+export const createProjectDAL = async (project: BuildingProjectCreateInterface) => {
+    try {
+        const newProject = await prisma.buildingProject.create({
+            data: project
+        });
+        return newProject;
+    } catch (error) {
+        console.error(error);
+        throw new Error("Failed to create project");
     }
 };
