@@ -15,7 +15,11 @@ datasource db {
 
 model BuildingProject {
   id Int @id @default(autoincrement())
-  title String
-  area String
-  
+  title String @default("")
+  urban_or_architecture String @default("")
+  project_category  String @default("")
+  region String @default("")
+  plot_area String @default("")
+  building_type String @default("")
+  basic_limits String @default("")
 }

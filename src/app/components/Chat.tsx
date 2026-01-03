@@ -80,12 +80,12 @@ export default function Chat() {
 
   return (
     <>
-      <Message
+      {/* <Message
         id={Math.ceil(Math.random() * 1000).toString()}
         key={Math.ceil(Math.random() * 1000).toString()}
         text={fixedQuestions}
         role="assistant"
-      />
+      /> */}
       {messages.map((message) => (
         <Message key={message.id} {...message} />
       ))}

@@ -1,7 +1,8 @@
 import { showProjectById } from "@/app/services/projectService";
 import Chat from "@/app/components/Chat";
 export default async function ProjectPage() {
-    const project = await showProjectById(1);
+    const project = await showProjectById(2);
+    console.log(project);
 
     return (
         <div>
